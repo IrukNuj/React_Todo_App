@@ -5,6 +5,11 @@ import ListItem from '@material-ui/core/ListItem';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 
 const todos_base = [];
@@ -72,8 +77,14 @@ function TodoList(props) {
 function TodoForm(props) {
     return (
         <form onSubmit={props.addTodo}>
-            <input type="text" value={props.item} onChange={props.updateItem}/>
-            <input type="submit"/>
+            <FormControl>
+                <InputLabel htmlFor="name-simple">Add Todo</InputLabel>
+                <Input id="add-todo" value={props.item} onChange={props.updateItem} />
+            </FormControl>
+
+            <Button variant="fab" mini color="primary" id="add-button" aria-label="Add" type="submit">
+                <AddIcon />
+            </Button>
         </form>
     )
 }
